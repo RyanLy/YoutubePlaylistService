@@ -2,6 +2,7 @@
 
 var path = require('path');
 var _ = require('lodash');
+var apiKeys = require('./apiKeys');
 
 function requiredProcessEnv(name) {
   if(!process.env[name]) {
@@ -54,8 +55,8 @@ var all = {
   },
 
   google: {
-    clientID:     process.env.GOOGLE_ID || 'id',
-    clientSecret: process.env.GOOGLE_SECRET || 'secret',
+    clientID:     apiKeys.GOOGLE_ID || 'id',
+    clientSecret: apiKeys.GOOGLE_SECRET || 'secret',
     callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
   }
 };

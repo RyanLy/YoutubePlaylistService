@@ -22,6 +22,7 @@ angular.module('youtubePlaylistServiceApp', [
       request: function (config) {
         config.headers = config.headers || {};
         if ($cookieStore.get('token')) {
+          console.log($cookieStore.get('token'));
           config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
         }
         return config;

@@ -9,6 +9,23 @@
 </header>
 
 <div class="container">
+  <div class="playlist-container" ng-show="isLoggedIn()">
+    <div ng-hide="addingPlaylist">
+      Import Youtube Playlist
+      <button ng-click="addPlaylists()">Add Playlist</button>
+    </div>
+    <div ng-if="addingPlaylist">
+      Click on a playlist to add
+      <div ng-repeat="playlist in playlists" ng-click="addSelectedPlaylist(playlist)">
+        
+          {{playlist.snippet.title}}
+          {{playlist.snippet.default.url}}
+          <img src="{{playlist.snippet.thumbnails.default.url}}" height="42" width="42">
+      
+      </div>
+    </div>
+  </div>
+  <!--
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Features:</h1>
@@ -17,7 +34,7 @@
       </ul>
     </div>
   </div>
-
+  
   <form class="thing-form">
     <label>Syncs in realtime across clients</label>
     <p class="input-group">
@@ -27,6 +44,7 @@
       </span>
     </p>
   </form>
+  -->
 </div>
 
 <footer class="footer">
